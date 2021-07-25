@@ -29,14 +29,7 @@ class CreateTransactionsTable extends Migration
             $table->unsignedBigInteger('debtor_id')->unsigned();
             $table->foreign('debtor_id')->references('id')->on('users')->onDelete('cascade');
 
-            // reference transaction id for Repayment
-            $table->unsignedBigInteger('transaction_id')->unsigned()->nullable()->default(null);
-            $table->foreign('transaction_id')->references('id')->on('transactions')->onDelete('cascade');
-
             $table->double('amount');
-            $table->boolean('is_approved')->default(0);
-            $table->string('naration')->nullable();
-
 
             $table->timestamps();
         });
