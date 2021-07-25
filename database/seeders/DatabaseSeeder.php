@@ -23,5 +23,10 @@ class DatabaseSeeder extends Seeder
             ['id' => 3, 'name' => 'Test User', 'email' => 'user@test.dev', 'is_real_user' => 1, 'is_admin' => 0, 'password' => bcrypt('user@123')],
         ];
         DB::table('users')->insert($users);
+
+        // transaction_types
+        DB::table('transaction_types')->delete();
+        DB::table('transaction_types')->insert(['id'=>1,'name' => 'Loan' ]);
+        DB::table('transaction_types')->insert(['id'=>2,'name' => 'Repayment' ]);
     }
 }

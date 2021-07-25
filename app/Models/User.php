@@ -41,4 +41,12 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+
+    public function balance()
+    {
+      $credited = Transaction::where('debtor_id', $this->id)->sum('amount');
+      $debited = Transaction::where('creditor_id', $this->id)->sum('amount');
+      return round($credited-$debited,2);
+    }
 }

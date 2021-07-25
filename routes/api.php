@@ -20,3 +20,11 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::post('/login', [App\Http\Controllers\Auth\ApiAuthController::class, 'login']);
 Route::get('/logout', [App\Http\Controllers\Auth\ApiAuthController::class, 'logout']);
+
+Route::get('users/{id}/balance', [App\Http\Controllers\UserController::class, 'balance'])->name('balance');
+
+
+Route::post('loans/apply', [App\Http\Controllers\LoanController::class, 'loan_apply'])->name('loan_apply');
+Route::post('loans/approve', [App\Http\Controllers\LoanController::class, 'loan_approve'])->name('loan_approve');
+
+Route::post('transactions/loan/repay', [App\Http\Controllers\TransactionController::class, 'loan_repay'])->name('loan_repay');
