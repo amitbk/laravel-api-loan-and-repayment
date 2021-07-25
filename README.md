@@ -1,62 +1,122 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://github.com/amitbk/laravel-api-loan-and-repayment/blob/main/public/images/laravel.png?raw=true" width="400"></a></p>
 
 <p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
+
 </p>
 
-## About Laravel
+## About Project
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+It is an app that allows authenticated users to go through a loan application. It doesn’t have to contain too many fields, but at least “amount
+required” and “loan term.” All the loans will be assumed to have a “weekly” repayment frequency.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+After the loan is approved, the user must be able to submit the weekly loan repayments. It can be a simplified repay functionality, which won’t
+need to check if the dates are correct but will just set the weekly amount to be repaid.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## Setup
 
-## Learning Laravel
+#### 1. Clone the Repo
+```
+git clone git@github.com:amitbk/laravel-api-loan-and-repayment.git
+```
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+#### 2. Setup .env file
+Rename **.env.example** to **.env**
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+Default Database configuration is:
+```
+DB_DATABASE=laravel
+DB_USERNAME=root
+DB_PASSWORD=
+```
 
-## Laravel Sponsors
+#### 3. Change directory
+```
+cd laravel-api-loan-and-repayment
+```
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+#### 4. Initialize the project
+```
+npm run init
+```
+(Wait for some time to complete process.)
 
-### Premium Partners
+#### 5. App is ready now!
+```
+http://127.0.0.1:8000
+```
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
+## API List
 
-## Contributing
+#### Login API
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+```/api/login```
 
-## Code of Conduct
+Request Type: POST
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+Parameters Required=> email, password
 
-## Security Vulnerabilities
+Headers Required => Accept: application/json
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
 
-## License
+#### Apply For Loan
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+```/api/loans/apply```
+
+Request Type: POST
+
+Parameters Required=> amount, term (in years)
+
+Headers Required => Accept: application/json
+
+*Authorization reuired with bearer token
+
+
+#### Approve Loan
+
+```/api/loans/approve```
+
+Request Type: POST
+
+Parameters Required=> loan_id
+
+Headers Required => Accept: application/json
+
+*Authorization reuired with bearer token
+
+(For now, any loged in used can approve loan, no any check added)
+
+
+#### Repay Loan
+
+```api/transactions/loan/repay```
+
+Request Type: POST
+
+Parameters Required=> loan_id
+
+(Payment amount will be calculated automatically, because we need to repay weekly. So there will be fixed payment for each week.
+
+amount_to_pay = amount/(52*term)
+)
+
+Headers Required => Accept: application/json
+
+*Authorization reuired with bearer token
+
+
+#### Check Balance
+```api/users/{id}/balance```
+
+Request Type: GET
+
+Headers Required => Accept: application/json
+
+(This API is open, because it can be used for testing)
+
+## Unit Tests
+```
+php artisan test
+```
+
+## My Profile
+[LinkedIn](https://www.linkedin.com/in/amitkadam03/).
