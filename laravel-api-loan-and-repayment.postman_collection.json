@@ -1,0 +1,321 @@
+{
+	"info": {
+		"_postman_id": "0df1e8e4-dbf4-4230-9f2d-7f5157d50cfe",
+		"name": "laravel-api-loan-and-repayment",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Login API",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email",
+							"value": "admin@test.dev",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "admin@123",
+							"type": "text"
+						},
+						{
+							"key": "",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/login",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Check Auth",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiOWY1NWFhMzI4ODQyMGFlZGZkZGUzNDJiMjVkN2U5NGQ3YjZjZTdhN2EwNzk5YjhiNzUwZjBhOTdkNzAxNjM3NTM2MWQyNWMxZWUxNDlhNGQiLCJpYXQiOjE2MjcxODQwNjMuNzA3MDA3LCJuYmYiOjE2MjcxODQwNjMuNzA3MDEsImV4cCI6MTY1ODcyMDA2My43MDU1MjMsInN1YiI6IjIiLCJzY29wZXMiOltdfQ.LERwusdTLW51zQoU530IN8ctEgXBMfTI3AxDtxh-FbSobGdMd_Zg4ahbsUVHhf0ZwCBWL4l0_vQbTXgCNKGc3q6aoV18-ej6fbrj39xqHf_HDvlBEm6oqYd_HK-9xcTrpYsDnbJB3Zu2dVuQW88hm3I9TCU3m7oYuq2CZU6VOIjkkmDADsrhWmFKCwOPnJZzQMoU0aS4ldtS00FB7yKndN-NRS9EQ8yRXx6ALvkXiF0ipDtDYEWawElyY6jDiAIyXUXtD5rCZUz6Id81cjsgToOntSVv6m4sd41yELWLtqmajbIahD7pq9Ij-PGTVZ2aqTjDNrzj0ZcvUyyst6f9ninycUSyUwGhOB9nxLcZIkvopPaofco1ib_Kga_ZdPnxYaFv3doKR-Z6M7ezf0GB-sJ0U1gLKae6ga2QzPLrnSbtDNVYXVDFbR3NX1-Ux7IpkFIq4U7ZsD0LYp0i_94X8MCP3C9QKyuzRnQuwmXtu14OFdWExowHj1CF-8_PBE_Mxy7k8U7a0BMdAKWjN1IWIU9korgzjiiDnw1hCNaqwMM_Vlfm347kk8ml9ft9LlhzGag8sHs9sVkTF9Lytg-wSOA3D7J_zMoNJ81WL8HDYSxe_RYKbSMr6HcbHgb6yq6r6K10Lt0NHGVnFasrOQcVv2FcJ6E3VVuH8_fGzo99-cY",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:8000/home",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"home"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Apply For Loan",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiZGYyMmNjZWVhZjNhM2YyOGIyZjE0OWY1ZDM2Y2FlZWZiNjhkOTBkOWVjM2NmZjY4MmFhMWE3YzJkYjM4OWM4ZGI3MmUxMTgwYzBjNzJiNmIiLCJpYXQiOjE2MjcyMTA5ODYuMzc3NjA4LCJuYmYiOjE2MjcyMTA5ODYuMzc3NjE5LCJleHAiOjE2NTg3NDY5ODYuMzc1MTM5LCJzdWIiOiIyIiwic2NvcGVzIjpbXX0.d5Y3nWxZjMwsusmVIjB47ssocT_V1xi3kvXfIoUw94GIEGhDSArivM-FBuX6NTTSttmUSS4uF41SCEY4NmnNO5pO4oafYqb8SBV_N4qEur49_CQ0JxhFjc9uvgCwKDXycjW748SPMyxRNaoVpy-OW58eC08rJZeeabDqo2aEc3lyMjqrqZIc4WatbVrGLZ5oiPmv8Yqzc58Drdd6TTTM7SQecCs_CWuXPXwdsrG6iWY57oyN0P5G5XS70NtCXTsaPHBmL7xfJ_yMA3EOvSVbtwGXIo9FFg9ELpRWNtT5fs2JWf3T7WC5a81A293598sTXDp03oMjmzQD76D6DHZs_keYM_63iKRISD6Na47uZnIMb9Cid6WjKxEvqGt6WzMXoWAjt1gtgVlhrrf9W1c3iJQQitlHBkKvvb9uD3GKvf2oUZZMtaHZjmpQAdNGbHcPSbvXzF9_aiDG2VIGnwIaeWG5ptdbnXl8fxLYn-bcdTdbAqbEUO8SetM6V4jL-ThSFM6BCaF1-9fEwxKjS3DTBxPrGey9hHHKF_pVhRCbNtbJrkp8jhdlM4-q1WebHoxK815LGGlNzwNXDSjDFTFmZ1--aazfNQ-lryUOwxcP2ix-a1XJYxnd30u9ntXRJKYFEOZxOsCadTkV0U_Qu5ngvfIXDbQx8b5ufjWQbgBr4mo",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "amount",
+							"value": "1000",
+							"type": "text"
+						},
+						{
+							"key": "term",
+							"value": "1",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/loans/apply",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"loans",
+						"apply"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Repay Loan",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiOWY1NWFhMzI4ODQyMGFlZGZkZGUzNDJiMjVkN2U5NGQ3YjZjZTdhN2EwNzk5YjhiNzUwZjBhOTdkNzAxNjM3NTM2MWQyNWMxZWUxNDlhNGQiLCJpYXQiOjE2MjcxODQwNjMuNzA3MDA3LCJuYmYiOjE2MjcxODQwNjMuNzA3MDEsImV4cCI6MTY1ODcyMDA2My43MDU1MjMsInN1YiI6IjIiLCJzY29wZXMiOltdfQ.LERwusdTLW51zQoU530IN8ctEgXBMfTI3AxDtxh-FbSobGdMd_Zg4ahbsUVHhf0ZwCBWL4l0_vQbTXgCNKGc3q6aoV18-ej6fbrj39xqHf_HDvlBEm6oqYd_HK-9xcTrpYsDnbJB3Zu2dVuQW88hm3I9TCU3m7oYuq2CZU6VOIjkkmDADsrhWmFKCwOPnJZzQMoU0aS4ldtS00FB7yKndN-NRS9EQ8yRXx6ALvkXiF0ipDtDYEWawElyY6jDiAIyXUXtD5rCZUz6Id81cjsgToOntSVv6m4sd41yELWLtqmajbIahD7pq9Ij-PGTVZ2aqTjDNrzj0ZcvUyyst6f9ninycUSyUwGhOB9nxLcZIkvopPaofco1ib_Kga_ZdPnxYaFv3doKR-Z6M7ezf0GB-sJ0U1gLKae6ga2QzPLrnSbtDNVYXVDFbR3NX1-Ux7IpkFIq4U7ZsD0LYp0i_94X8MCP3C9QKyuzRnQuwmXtu14OFdWExowHj1CF-8_PBE_Mxy7k8U7a0BMdAKWjN1IWIU9korgzjiiDnw1hCNaqwMM_Vlfm347kk8ml9ft9LlhzGag8sHs9sVkTF9Lytg-wSOA3D7J_zMoNJ81WL8HDYSxe_RYKbSMr6HcbHgb6yq6r6K10Lt0NHGVnFasrOQcVv2FcJ6E3VVuH8_fGzo99-cY",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "loan_id",
+							"value": "1",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/transactions/loan/repay",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"transactions",
+						"loan",
+						"repay"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Approve Loan",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiNWM3NzFmMmRmNmQ1MTUxNjJhNDljM2Y1MTRkYzc2ZGI0MWFiYmZjYzFkZThlYjc3ZTA5NjkzYTdiY2JjNmRlN2FjYzBmYjI0ODIyMWZkNDUiLCJpYXQiOjE2MjcxODMyMTMuMzk4OTE3LCJuYmYiOjE2MjcxODMyMTMuMzk4OTIsImV4cCI6MTY1ODcxOTIxMy4zOTcwOTksInN1YiI6IjIiLCJzY29wZXMiOltdfQ.oiGPzkF10Wf0TF7_Z_jEDECIiB4bseWGVPz2UhKqHd2J5NzZYXqDxBAouWiXYAj9AOVEkusdoHlWv7Saf-dnr5PQry97006oQ-SpssA__YP-E1xhT99CiGX_CdkgTosbbSf3xpBeFx2MrEDK7xakpTRk5TJHy6utdFYXtSpkDae6h_BUc_Qf04kKMJ34AmfJiWi0SpoNEwiO_5p5HG5bCibPhEZSzTmXGSzazwddX3QuiLwI2iUkHbYv_T0byHIHZSIubnfA8NxOQ3NhD9DYHmo7gkZYNdUXzHNyXgYzZnNt4HPPtrhN2QSoIW1FuXNHWfA4H0Z6r_w8bwubMjAWAD_Oag4yzQFDdLh9hwKN48k-infdcB_TgkAWTGK_Yx5d6JcZeNF7iMNcIxDIwxXic3sENOvuM0xT_hS8AT27xTodNXftIt44cprSeBACJz0j9tZ223XQIM3RfvMgA6kZhTCyrwOJ25A86QCy2gVEyxs_r8XCKxRueAPbJF8oTSl8ktsx9wdmgWgh0ndQrOTru_um2kIRue0p-LiYja3QB2tueJCSt_qAJ_WvgjPPkmGlPQNlUtReOGSVow4nVtNTmkTvquPcobDfexFUqEouiiIVfxIWxnKfNBbjP6MqWZvi0OpJKEq8u9mKtCwmJr9bs70CSw5QDp1VO2BDlp1jDUk",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/loans/approve",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"loans",
+						"approve"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Check Balance",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/users/1/balance",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"users",
+						"1",
+						"balance"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiNmY4NjA2NDNmOGJiOWYwZjMwY2FiNTUxYmE4NDI4YjNjZWU2NzFmMDgzZjU1ZTA5NGE5NjhiNjQwZDRlODUzZjgzMGFlYTNlMGZjOGUyYjciLCJpYXQiOjE2MjcxMTQ5OTUuMzY2MjA5LCJuYmYiOjE2MjcxMTQ5OTUuMzY2MjEyLCJleHAiOjE2NTg2NTA5OTUuMzU2OTQ3LCJzdWIiOiIyIiwic2NvcGVzIjpbXX0.admR2DavMzE9vlU9MlkKdlSvVlkmC1YR4d2TsGAftZ8ziTS8RCO-uhXbWn7pIxOYxxF7uf7F7kUv19fqayto-bU-ByoChJudA9Jwi5WbPt37fkGXQWeTxTk8_v0o4DfiHprb3RnT4AVDWRijV5UnrqDjlQSoYPv1o3sb_5pOpjRRzKBIx5NX4uA4ohmgqwAGBGJZpqnpohQ06CfdMay0RCksp8lUi8WCsQmhmZ_j_1tJ9xQAkybB2_KO9bV6pmqXDRX5lk5k8PNhmUi4XlKPdWIJJwtof6Zm6QmUAiJYCV3vdqSrR88VuzxstrF4IvEKLRYUrp6JvHEmoxXIFv5EXXlaE42afyF-BkfkNVqwpIbvElvv7V6fuO4pSADEwCAEg3Wy70wcsJQigNMpP1EANViGsxSOzql7LZNPhH1Oa3g4VUL2tkQP34ZQ2dDyz3UDuGtMNnoh-HprGZGI__oZ_a1UOjiz-diXFHAWyGA1WOWbQc41ftgKB4bn85zu6Uwf7e_5QaqIS3fgffvayGHETxwr6wwst6Jgv9kZnfAud2oq4BHzkHUfdSXKv6j7pCcUrZLjFXe0-smkLCGF29gODzNWadaYTamJ6yflEOFNze-L1ZrddhLvEVp8BcGdM_Qaoc-yvvGQ95BDe2d6Ld2_-deYZCU37lZVbX7q-RO2aRQ",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
