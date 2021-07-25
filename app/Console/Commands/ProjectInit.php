@@ -37,8 +37,10 @@ class ProjectInit extends Command
      */
     public function handle()
     {
+        $this->call('key:generate');
         $this->call('migrate:fresh');
         $this->call('db:seed');
         $this->call('passport:install');
+        $this->call('serve');
     }
 }
