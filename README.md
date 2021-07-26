@@ -113,6 +113,12 @@ Headers Required => Accept: application/json
 
 (This API is open, because it can be used for testing)
 
+## Postman Collections
+```
+https://github.com/amitbk/laravel-api-loan-and-repayment/blob/main/laravel-api-loan-and-repayment.postman_collection.json
+```
+
+
 ## Unit Tests
 ```
 php artisan test
